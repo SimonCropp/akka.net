@@ -30,12 +30,10 @@ namespace Akka.Persistence.TestKit.Tests
         private class TestActor2 : UntypedPersistentActor
         {
             private readonly IActorRef _probe;
-            private readonly ILoggingAdapter _log;
             public override string PersistenceId => "foo";
 
             public TestActor2(IActorRef probe)
             {
-                _log = Context.GetLogger();
                 _probe = probe;
             }
 

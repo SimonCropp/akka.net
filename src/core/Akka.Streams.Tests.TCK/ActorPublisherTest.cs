@@ -54,15 +54,12 @@ namespace Akka.Streams.Tests.TCK
 
                 }
             }
-            
 
-            private readonly long _allElements;
             private int _current;
             private readonly int _count;
 
             public TestPublisher(long allElements)
             {
-                _allElements = allElements;
                 if (allElements == long.MaxValue)
                 {
                     _current = 1;

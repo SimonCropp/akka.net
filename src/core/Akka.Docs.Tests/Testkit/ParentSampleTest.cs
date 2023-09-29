@@ -50,12 +50,8 @@ namespace DocsExamples.Testkit
 #region DependentChild_0
         class DependentChild : ReceiveActor
         {
-            private IActorRef parent;
-
             public DependentChild(IActorRef parent)
             {
-                this.parent = parent;
-
                 Receive<string>(s => s.Equals("ping"), _ =>
                 {
                     parent.Tell("pong", Self);

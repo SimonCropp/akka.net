@@ -69,7 +69,6 @@ namespace Akka.Cluster.Sharding.Internal
             }
         }
 
-        private ActorSystem _system;
         private Cluster _cluster;
 
         // protected for testability
@@ -78,7 +77,6 @@ namespace Akka.Cluster.Sharding.Internal
 
         public void Start(ActorSystem system)
         {
-            _system = system;
             _cluster = Cluster.Get(system);
         }
 

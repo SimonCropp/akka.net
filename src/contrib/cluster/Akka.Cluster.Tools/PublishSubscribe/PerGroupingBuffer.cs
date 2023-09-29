@@ -18,7 +18,6 @@ namespace Akka.Cluster.Tools.PublishSubscribe
     internal class PerGroupingBuffer
     {
         private readonly Dictionary<string, BufferedMessages> _buffers = new();
-        private int _totalBufferSize = 0;
 
         /// <summary>
         /// TBD
@@ -32,7 +31,6 @@ namespace Akka.Cluster.Tools.PublishSubscribe
             if (_buffers.TryGetValue(grouping, out var messages))
             {
                 messages.Add(new KeyValuePair<object, IActorRef>(message, originalSender));
-                _totalBufferSize += 1;
             }
             else
                 action();
@@ -48,7 +46,6 @@ namespace Akka.Cluster.Tools.PublishSubscribe
             if (_buffers.TryGetValue(grouping, out var messages) && messages.Count > 0)
             {
                 ForwardMessages(messages, recipient());
-                _totalBufferSize -= messages.Count;
             }
             _buffers.Remove(grouping);
         }
@@ -63,7 +60,6 @@ namespace Akka.Cluster.Tools.PublishSubscribe
             if (_buffers.TryGetValue(grouping, out var messages))
             {
                 ForwardMessages(messages, recipient);
-                _totalBufferSize -= messages.Count;
             }
             _buffers.Remove(grouping);
         }

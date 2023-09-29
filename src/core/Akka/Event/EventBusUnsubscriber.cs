@@ -27,22 +27,18 @@ namespace Akka.Event
     {
         private readonly EventStream _eventStream;
         private readonly bool _debug;
-        private readonly ActorSystem _system;
 
         /// <summary>
         /// TBD
         /// </summary>
         /// <param name="eventStream">TBD</param>
-        /// <param name="system">TBD</param>
         /// <param name="debug">TBD</param>
-        public EventStreamUnsubscriber(EventStream eventStream, ActorSystem system, bool debug)
+        public EventStreamUnsubscriber(EventStream eventStream, bool debug)
         {
             _eventStream = eventStream;
-            _system = system;
             _debug = debug;
-           
         }
-        
+
         protected override bool Receive(object message)
         {
             switch (message)

@@ -90,13 +90,11 @@ namespace Akka.Streams.TestKit
         /// </summary>
         public partial class ManualProbe<T> : ISubscriber<T>
         {
-            private readonly TestKitBase _testKit;
             internal readonly TestProbe TestProbe;
             private volatile ISubscription _subscription_DoNotUseDirectly;
 
             internal ManualProbe(TestKitBase testKit)
             {
-                _testKit = testKit;
                 TestProbe = testKit.CreateTestProbe();
             }
 

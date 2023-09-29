@@ -30,7 +30,6 @@ namespace Akka.Cluster.Sharding.Internal
         }
 
         private readonly ILoggingAdapter _log = Context.GetLogger();
-        private readonly string _typeName;
         private readonly IActorRef _replicator;
 
         private readonly Cluster _node;
@@ -47,7 +46,6 @@ namespace Akka.Cluster.Sharding.Internal
             IActorRef replicator,
             int majorityMinCap)
         {
-            _typeName = typeName;
             _replicator = replicator;
 
             _node = Cluster.Get(Context.System);

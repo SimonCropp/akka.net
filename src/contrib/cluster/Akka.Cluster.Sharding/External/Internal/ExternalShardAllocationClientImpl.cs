@@ -22,8 +22,6 @@ namespace Akka.Cluster.Sharding.External.Internal
     /// </summary>
     internal sealed class ExternalShardAllocationClientImpl : IExternalShardAllocationClient
     {
-        private readonly ActorSystem _system;
-        private readonly string _typeName;
         private readonly ILoggingAdapter _log;
         private readonly IActorRef _replicator;
         private readonly UniqueAddress _self;
@@ -33,8 +31,6 @@ namespace Akka.Cluster.Sharding.External.Internal
 
         public ExternalShardAllocationClientImpl(ActorSystem system, string typeName)
         {
-            _system = system;
-            _typeName = typeName;
             _log = Logging.GetLogger(system, GetType());
             _replicator = DistributedData.DistributedData.Get(system).Replicator;
             _self = Cluster.Get(system).SelfUniqueAddress;

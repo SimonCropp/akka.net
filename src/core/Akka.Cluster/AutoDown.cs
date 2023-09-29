@@ -274,12 +274,10 @@ namespace Akka.Cluster
     [InternalApi] // really only used during MNTR for Akka.Cluster.Sharding
     public sealed class AutoDowning : IDowningProvider
     {
-        private readonly ActorSystem _system;
         private readonly Cluster _cluster;
         
         public AutoDowning(ActorSystem system, Cluster cluster)
         {
-            _system = system;
             _cluster = cluster;
         }
 

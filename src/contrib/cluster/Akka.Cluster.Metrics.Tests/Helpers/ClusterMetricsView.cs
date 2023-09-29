@@ -20,7 +20,6 @@ namespace Akka.Cluster.Metrics.Tests.Helpers
     /// </summary>
     public class ClusterMetricsView : IDisposable
     {
-        private readonly ExtendedActorSystem _system;
         private readonly ClusterMetrics _extension;
         
         /// <summary>
@@ -39,7 +38,6 @@ namespace Akka.Cluster.Metrics.Tests.Helpers
         
         public ClusterMetricsView(ExtendedActorSystem system)
         {
-            _system = system;
             _extension = Metrics.ClusterMetrics.Get(system);
             
             _eventBusListener = system.SystemActorOf(

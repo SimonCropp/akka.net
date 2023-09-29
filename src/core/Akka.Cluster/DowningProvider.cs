@@ -44,12 +44,10 @@ namespace Akka.Cluster
     /// </summary>
     public sealed class NoDowning : IDowningProvider
     {
-        private readonly ActorSystem _system;
         private readonly Cluster _cluster;
-        
+
         public NoDowning(ActorSystem system, Cluster cluster)
         {
-            _system = system;
             _cluster = cluster;
         }
 

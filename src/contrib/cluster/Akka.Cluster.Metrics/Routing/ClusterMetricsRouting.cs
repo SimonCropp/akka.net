@@ -33,7 +33,6 @@ namespace Akka.Cluster.Metrics
     /// </summary>
     public sealed class AdaptiveLoadBalancingRoutingLogic : RoutingLogic, IClusterMetricsRoutingLogic
     {
-        private readonly ActorSystem _system;
         private readonly IMetricsSelector _metricsSelector;
         private readonly Cluster _cluster;
         private readonly AtomicReference<Tuple<ImmutableArray<Routee>, IImmutableSet<NodeMetrics>, Option<WeightedRoutees>>> _weightedRouteesRef;
@@ -47,7 +46,6 @@ namespace Akka.Cluster.Metrics
         /// </param>
         public AdaptiveLoadBalancingRoutingLogic(ActorSystem system, IMetricsSelector metricsSelector = null)
         {
-            _system = system;
             _metricsSelector = metricsSelector ?? MixMetricsSelector.Instance;
             _cluster = Cluster.Get(system);
             

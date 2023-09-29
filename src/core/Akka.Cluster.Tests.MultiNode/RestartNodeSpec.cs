@@ -67,12 +67,10 @@ namespace Akka.Cluster.Tests.MultiNode
 
         public class Watcher : ReceiveActor
         {
-            private Address _a;
             private IActorRef _replyTo;
 
             public Watcher(Address a, IActorRef replyTo)
             {
-                _a = a;
                 _replyTo = replyTo;
 
                 Context.ActorSelection(new RootActorPath(a) / "user" / "address-receiver").Tell(new Identify(null));

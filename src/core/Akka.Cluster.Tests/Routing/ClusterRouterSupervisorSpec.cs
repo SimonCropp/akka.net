@@ -27,11 +27,8 @@ namespace Akka.Cluster.Tests.Routing
 
         class KillableActor : ReceiveActor
         {
-            private readonly IActorRef TestActor;
-
             public KillableActor(IActorRef testActor)
             {
-                TestActor = testActor;
                 Receive<string>(s => s == "go away", _ =>
                 {
                     throw new ArgumentException("Goodbye then!");

@@ -188,7 +188,7 @@ namespace Akka.Coordination.Tests
     {
         public override TestLeaseActorClientExt CreateExtension(ExtendedActorSystem system)
         {
-            var extension = new TestLeaseActorClientExt(system);
+            var extension = new TestLeaseActorClientExt();
             return extension;
         }
     }
@@ -200,13 +200,7 @@ namespace Akka.Coordination.Tests
             return system.WithExtension<TestLeaseActorClientExt, TestLeaseActorClientExtExtensionProvider>();
         }
 
-        private readonly ExtendedActorSystem _system;
         private AtomicReference<IActorRef> leaseActor = new();
-
-        public TestLeaseActorClientExt(ExtendedActorSystem system)
-        {
-            _system = system;
-        }
 
         public IActorRef GetLeaseActor()
         {

@@ -17,12 +17,8 @@ namespace DocsExamples.Testkit
 #region ProbeSample_0
         public class Forwarder : ReceiveActor
         {
-            private IActorRef target;
-
             public Forwarder(IActorRef target)
             {
-                this.target = target;
-
                 ReceiveAny(target.Forward);
             }
         }

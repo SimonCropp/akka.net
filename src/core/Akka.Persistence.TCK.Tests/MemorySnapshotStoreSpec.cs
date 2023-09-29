@@ -121,12 +121,10 @@ namespace Akka.Persistence.TCK.Tests
         public class SnapshotActor : ReceivePersistentActor
         {
             private int _count = 0;
-            private readonly IActorRef _reporter;
 
             public SnapshotActor(string persistenceId, IActorRef reporter)
             {
                 PersistenceId = persistenceId;
-                _reporter = reporter;
 
                 Recover<SnapshotOffer>(offer =>
                 {

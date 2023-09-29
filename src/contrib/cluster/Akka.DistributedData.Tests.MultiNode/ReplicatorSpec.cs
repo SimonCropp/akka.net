@@ -46,7 +46,6 @@ namespace Akka.DistributedData.Tests.MultiNode
 
     public class ReplicatorSpec : MultiNodeClusterSpec
     {
-        private readonly ReplicatorSpecConfig _config;
         private readonly Cluster.Cluster _cluster;
 
         private readonly IActorRef _replicator;
@@ -88,7 +87,6 @@ namespace Akka.DistributedData.Tests.MultiNode
         protected ReplicatorSpec(ReplicatorSpecConfig config)
             : base(config, typeof(ReplicatorSpec))
         {
-            _config = config;
             _first = config.First;
             _second = config.Second;
             _third = config.Third;
